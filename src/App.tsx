@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import ProviderTheme from './components/ProviderTheme/ProviderTheme';
+import { GlobalStyle } from './config/themes';
 
 
 import Routing from './routing.routes';
@@ -13,6 +14,7 @@ function App() {
       <Provider store={store}>
         <ProviderTheme>
           <Routing />
+          <GlobalStyle />
         </ProviderTheme>
       </Provider>
     </div>

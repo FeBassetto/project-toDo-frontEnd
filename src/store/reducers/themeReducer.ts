@@ -1,16 +1,16 @@
-import ITheme from "../../models/ITheme"
-import { Types } from "../actions/thtemeAction"
+import ITheme from "../../models/IStateTheme"
+import { Types } from "../actions/themeActions"
 
 const initialState: ITheme = {
-    theme: 'lightMode'
+    lightMode: true
 }
 
 export default function themeReducer(state = initialState, action: any) {
 
     switch (action.type) {
-        case Types.CHANGE_COLOR:
+        case Types.CHANGE_THEME:
             return {
-                theme: action.payload.color
+                lightMode: action.payload.lightMode
             }
         default:
             return state

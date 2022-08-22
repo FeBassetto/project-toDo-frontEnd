@@ -1,0 +1,60 @@
+.mobileHeader{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.mobileHeader > svg{
+    margin: 0 .5rem;
+}
+
+.mobileHeader > svg:hover{
+    cursor: pointer;
+
+    opacity: .7;
+}
+
+.mobileHeader__menu{
+    position: fixed;
+    right: -10px;
+    z-index: 99;
+
+    height: 100vh;
+    width: 80%;
+    
+    transition: 1s;
+
+    margin-top: 1rem;
+}
+
+.mobileHeader__menu ul{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: scroll;
+}
+
+.mobileHeader__menu ul li{
+    transition: .6s;
+
+    width: 80%;
+    padding: 2vh 0;
+    margin-top: 4vh;
+    
+    text-align: center;
+}
+
+.mobileHeader__menu_closed{
+    width: 0;
+}
+
+.mobileHeader__menu_closed ul li{
+    opacity: 0;
+}

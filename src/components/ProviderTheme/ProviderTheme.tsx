@@ -4,9 +4,9 @@ import { ThemeProvider } from "styled-components";
 import { lightModeTheme, darkModeTheme } from "../../config/themes";
 
 
-const ProviderTheme = ({ children, theme }: any) => {
+const ProviderTheme = ({ children, lightMode }: any) => {
 
-    const themeConditional = theme === 'lightMode' ? lightModeTheme : darkModeTheme
+    const themeConditional = lightMode ? lightModeTheme : darkModeTheme
 
     return (
         <ThemeProvider theme={themeConditional}>
@@ -16,7 +16,7 @@ const ProviderTheme = ({ children, theme }: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-    theme: state.themeReducer.theme
+    lightMode: state.themeReducer.lightMode
 })
 
 export default connect(mapStateToProps, null)(ProviderTheme)
