@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://teppabackend.herokuapp.com/'
+    baseURL: process.env.PUBLIC_URL
 });
 
 export default api
