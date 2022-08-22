@@ -1,5 +1,11 @@
-.container{
-    padding-top: 20vh;
+.container {
+    padding: 15vh 1rem;
 
     min-height: 80vh;
+}
+
+@media screen and (min-width: 550px) {
+    .container {
+        padding: 20vh 1rem;
+    }
 }
