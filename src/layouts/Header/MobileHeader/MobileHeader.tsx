@@ -14,6 +14,7 @@ import { themeActions } from "../../../store/actions/themeActions";
 const StyledMenu = styled.div`
     background-color: ${({ theme }: IStyledTheme) => theme.headerBackground};
     border-top: 1px solid ${({ theme }: IStyledTheme) => theme.headerColor};
+    border-left : 1px solid ${({ theme }: IStyledTheme) => theme.headerColor};
 
     & ul li{
        border-bottom : 1px solid ${({ theme }: IStyledTheme) => theme.headerColor};
@@ -48,13 +49,13 @@ const MobileHeader = (props: any) => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li onClick={() => toggleMenu()}>
-                        <Link to='/Tasks'>Tasks</Link>
+                        <Link to='/tasks'>Tasks</Link>
                     </li>
                     <li onClick={() => toggleMenu()}>
-                        <Link to='/Profile'>Perfil</Link>
+                        <Link to='/profile'>Perfil</Link>
                     </li>
                     <li onClick={() => toggleMenu()}>
-                        <Link to='/Exit'>Sair</Link>
+                        <Link to='/exit'>Sair</Link>
                     </li>
                 </ul>
                 <div className={styles.mobileHeader__menuLogo}>

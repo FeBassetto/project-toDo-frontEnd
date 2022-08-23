@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Container from "./layouts/Container/Container";
-import Header from "./layouts/Header/Header";
 
 //Pages
 import Home from "./pages/Home";
+
+//Layouts
+import Header from "./layouts/Header/Header";
+import Footer from "./layouts/Footer/Footer";
 
 const Routing = () => {
     return (
@@ -15,6 +18,7 @@ const Routing = () => {
                     <Route path='/' element={<Home />} />
                 </Routes>
             </Container>
+            <Footer />
         </Router>
     )
 }

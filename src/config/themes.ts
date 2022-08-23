@@ -43,10 +43,12 @@ export const GlobalStyle = createGlobalStyle`
 //Themes
 export const darkModeTheme = {
     headerBackground: '#161B22',
-    headerColor: '#BABBBD'
+    headerColor: '#BABBBD',
+    footerBackground: '#19222f'
 }
 
 export const lightModeTheme = {
     headerBackground: '#000000',
-    headerColor: '#ffffff'
+    headerColor: '#ffffff',
+    footerBackground: '#414141'
 }
