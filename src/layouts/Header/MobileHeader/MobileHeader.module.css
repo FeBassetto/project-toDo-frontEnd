@@ -1,4 +1,4 @@
-.mobileHeader{
+.mobileHeader {
     width: 100%;
     height: 100%;
 
@@ -7,32 +7,34 @@
     justify-content: flex-end;
 }
 
-.mobileHeader > svg{
+.mobileHeader>svg {
     margin: 0 .5rem;
 }
 
-.mobileHeader > svg:hover{
+.mobileHeader>svg:hover {
     cursor: pointer;
 
     opacity: .7;
 }
 
-.mobileHeader__menu{
+.mobileHeader__menu {
     position: fixed;
     right: -10px;
     z-index: 99;
 
     height: 100vh;
     width: 80%;
-    
-    transition: 1s;
+
+    max-width: 400px;
+
+    transition: 2s;
 
     margin-top: 1rem;
 }
 
-.mobileHeader__menu ul{
+.mobileHeader__menu ul {
     width: 100%;
-    height: 100%;
+    height: 70%;
 
     display: flex;
     flex-direction: column;
@@ -41,20 +43,38 @@
     overflow: scroll;
 }
 
-.mobileHeader__menu ul li{
-    transition: .6s;
+.mobileHeader__menu ul li {
+    transition: 1.5s;
 
     width: 80%;
-    padding: 2vh 0;
-    margin-top: 4vh;
-    
+    height: calc(90% / 4);
+
     text-align: center;
+
+    padding-bottom: 1rem;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-.mobileHeader__menu_closed{
+.mobileHeader__menuLogo {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 1.5s;
+}
+
+.mobileHeader__menu_closed {
     width: 0;
 }
 
-.mobileHeader__menu_closed ul li{
+.mobileHeader__menu_closed ul li {
+    opacity: 0;
+}
+
+.mobileHeader__menu_closed .mobileHeader__menuLogo {
     opacity: 0;
 }

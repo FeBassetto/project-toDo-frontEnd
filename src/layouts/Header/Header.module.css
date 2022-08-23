@@ -9,7 +9,7 @@
 
     position: fixed;
 
-    font-size: 3vh;
+    font-size: 1.5rem;
 
     font-family: LatoLight;
 }
@@ -36,7 +36,5 @@
 @media screen and (min-width: 550px) {
     .header {
         height: 15vh;
-
-        font-size: 4vh;
     }
 }

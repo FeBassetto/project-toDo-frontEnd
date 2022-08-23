@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from './MobileHeader.module.css'
 
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
+import { RiTodoLine } from 'react-icons/ri'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -56,6 +57,12 @@ const MobileHeader = (props: any) => {
                         <Link to='/Exit'>Sair</Link>
                     </li>
                 </ul>
+                <div className={styles.mobileHeader__menuLogo}>
+                    <Link to='/'>
+                        <RiTodoLine />
+                        ToDo
+                    </Link>
+                </div>
             </StyledMenu>
         </>
     )
