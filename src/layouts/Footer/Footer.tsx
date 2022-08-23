@@ -5,6 +5,7 @@ import styles from './Footer.module.css'
 
 import { RiTodoLine } from 'react-icons/ri'
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 
 const StyledFooter = styled.footer`
@@ -22,7 +23,8 @@ const StyledFooter = styled.footer`
     }
 `
 
-const Footer = () => {
+const Footer = (props: any) => {
+
     return (
         <StyledFooter className={styles.footer}>
             <div className={styles.footer__logo}>
@@ -43,16 +45,25 @@ const Footer = () => {
                             Tasks
                         </Link>
                     </li>
-                    <li>
-                        <Link to='/profile'>
-                            Perfil
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/exit'>
-                            Sair
-                        </Link>
-                    </li>
+                    {props.token ?
+                        <>
+                            <li>
+                                <Link to='/profile'>Perfil</Link>
+                            </li>
+                            <li>
+                                <Link to='/'>Sair</Link>
+                            </li>
+                        </>
+                        :
+                        <>
+                            <li>
+                                <Link to='/register'>Resgistrar</Link>
+                            </li>
+                            <li>
+                                <Link to='/login'>Entrar</Link>
+                            </li>
+                        </>
+                    }
                 </ul>
             </div>
             <div className={styles.footer__copyright}>
@@ -64,4 +75,9 @@ const Footer = () => {
     )
 }
 
-export default Footer
+const mapStateToProps = (state: any) => ({
+    token: state.userReducer.token
+
+})
+
+export default connect(mapStateToProps, null)(Footer)

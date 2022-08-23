@@ -24,7 +24,6 @@ const StyledMenu = styled.div`
 const MobileHeader = (props: any) => {
 
     const [openMenu, setOpenMenu] = useState(false)
-    const loggedUser = false
 
     const toggleMenu = () => {
         setOpenMenu(openMenu => !openMenu)
@@ -52,14 +51,24 @@ const MobileHeader = (props: any) => {
                     <li onClick={() => toggleMenu()}>
                         <Link to='/tasks'>Tasks</Link>
                     </li>
-                    {loggedUser ?
-                        <li onClick={() => toggleMenu()}>
-                            <Link to='/profile'>Perfil</Link>
-                        </li>
+                    {props.token ?
+                        <>
+                            <li onClick={() => toggleMenu()}>
+                                <Link to='/profile'>Perfil</Link>
+                            </li>
+                            <li onClick={() => toggleMenu()}>
+                                <Link to='/'>Sair</Link>
+                            </li>
+                        </>
                         :
-                        <li onClick={() => toggleMenu()}>
-                            <Link to='/profile'>Login</Link>
-                        </li>
+                        <>
+                            <li onClick={() => toggleMenu()}>
+                                <Link to='/register'>Registrar</Link>
+                            </li>
+                            <li onClick={() => toggleMenu()}>
+                                <Link to='/login'>Entrar</Link>
+                            </li>
+                        </>
                     }
                 </ul>
                 <div className={styles.mobileHeader__menuLogo}>
@@ -76,7 +85,8 @@ const MobileHeader = (props: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(themeActions, dispatch)
 
 const mapStateToProps = (state: any) => ({
-    lightMode: state.themeReducer.lightMode
+    lightMode: state.themeReducer.lightMode,
+    token: state.userReducer.token
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MobileHeader)

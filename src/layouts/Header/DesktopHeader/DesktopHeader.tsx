@@ -10,8 +10,6 @@ import { themeActions } from "../../../store/actions/themeActions";
 
 const DesktopHeader = (props: any) => {
 
-    const loggedUser = true
-
     const setTheme = () => {
         props.changeTheme(!props.lightMode)
     }
@@ -30,26 +28,51 @@ const DesktopHeader = (props: any) => {
                             Tasks
                         </Link>
                     </li>
-                    <li>
-                        {props.lightMode ?
-                            <BsMoonFill onClick={() => setTheme()} />
-                            :
-                            <BsSunFill onClick={() => setTheme()} />
-                        }
-                    </li>
-                    {loggedUser ?
+                    {props.token && (
                         <li>
-                            <Link to='/profile'>
-                                <FaUser />
-                            </Link>
+                            {props.lightMode ?
+                                <BsMoonFill onClick={() => setTheme()} />
+                                :
+                                <BsSunFill onClick={() => setTheme()} />
+                            }
                         </li>
+                    )}
+                    {props.token ?
+                        <>
+                            <li>
+                                <Link to='/profile'>
+                                    <FaUser />
+                                </Link>
+                            </li>
+                            <li id={styles.exitButton}>
+                                <Link to='/'>
+                                    Sair
+                                </Link>
+                            </li>
+                        </>
                         :
-                        <li>
-                            <Link to='/login'>
-                                Logar
-                            </Link>
-                        </li>
+                        <>
+                            <li>
+                                <Link to='/register'>
+                                    Registrar
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/login'>
+                                    Entrar
+                                </Link>
+                            </li>
+                        </>
                     }
+                    {!props.token && (
+                        <li>
+                            {props.lightMode ?
+                                <BsMoonFill onClick={() => setTheme()} />
+                                :
+                                <BsSunFill onClick={() => setTheme()} />
+                            }
+                        </li>
+                    )}
                 </ul>
             </div>
         </>
@@ -59,7 +82,8 @@ const DesktopHeader = (props: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(themeActions, dispatch)
 
 const mapStateToProps = (state: any) => ({
-    lightMode: state.themeReducer.lightMode
+    lightMode: state.themeReducer.lightMode,
+    token: state.userReducer.token
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesktopHeader)
