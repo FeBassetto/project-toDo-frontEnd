@@ -24,6 +24,7 @@ const StyledMenu = styled.div`
 const MobileHeader = (props: any) => {
 
     const [openMenu, setOpenMenu] = useState(false)
+    const loggedUser = false
 
     const toggleMenu = () => {
         setOpenMenu(openMenu => !openMenu)
@@ -51,12 +52,15 @@ const MobileHeader = (props: any) => {
                     <li onClick={() => toggleMenu()}>
                         <Link to='/tasks'>Tasks</Link>
                     </li>
-                    <li onClick={() => toggleMenu()}>
-                        <Link to='/profile'>Perfil</Link>
-                    </li>
-                    <li onClick={() => toggleMenu()}>
-                        <Link to='/exit'>Sair</Link>
-                    </li>
+                    {loggedUser ?
+                        <li onClick={() => toggleMenu()}>
+                            <Link to='/profile'>Perfil</Link>
+                        </li>
+                        :
+                        <li onClick={() => toggleMenu()}>
+                            <Link to='/profile'>Login</Link>
+                        </li>
+                    }
                 </ul>
                 <div className={styles.mobileHeader__menuLogo}>
                     <Link to='/'>

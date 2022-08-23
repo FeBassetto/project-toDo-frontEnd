@@ -27,14 +27,27 @@
     height: 100%;
 }
 
+.header__desktop{
+    width: 60%;
+    height: 100%;
+}
+
 @media screen and (min-width: 1024px) {
     .header__mobile {
         display: none;
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .header__desktop {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 550px) {
     .header {
-        height: 15vh;
+        height: 125px;
+
+        font-size: 2rem;
     }
 }
