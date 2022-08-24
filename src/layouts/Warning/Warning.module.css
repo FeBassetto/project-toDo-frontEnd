@@ -1,0 +1,36 @@
+.warning {
+    position: fixed;
+    top: 10vh;
+    z-index: 99;
+
+    width: 100%;
+    padding: 1rem;
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 1.25rem;
+    font-family: LatoLight;
+
+    transition: 1s;
+}
+
+.warning_success {
+    background-color: #48ff48;
+    opacity: 1;
+}
+
+.warning_error{
+    background-color: #ff4949;
+    opacity: 1;
+}
+
+.warning_disabled{
+    opacity: 0;
+}
+
+@media screen and (min-width: 550px) {
+    .warning {
+        top: 125px;
+    }
+}

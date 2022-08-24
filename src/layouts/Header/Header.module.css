@@ -12,6 +12,8 @@
     font-size: 1.5rem;
 
     font-family: LatoLight;
+
+    z-index: 98;
 }
 
 .header__logo {
