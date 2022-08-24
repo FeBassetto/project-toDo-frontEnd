@@ -5,5 +5,7 @@ export default interface IStyledTheme {
         headerBackground: CSSObject,
         headerColor: CSSObject,
         footerBackground: CSSObject,
+        primaryBackground: CSSObject,
+        primaryColor: CSSObject,
     }
 }

@@ -1,11 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import NoLogin from "../components/NoLogin/NoLogin";
 
-const Home = () => {
+const Home = (props: any) => {
     return (
         <section>
-            <h1>Hello World!</h1>
+            {!props.token && (
+                <NoLogin />
+            )}
         </section>
     )
 }
 
-export default Home
+const mapStateToProps = (state: any) => ({
+    token: state.userReducer.token
+})
+
+export default connect(mapStateToProps, null)(Home)
