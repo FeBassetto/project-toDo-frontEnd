@@ -1,0 +1,56 @@
+.notFoundContent {
+    height: 70vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vw;
+}
+
+.notFoundContent h1 {
+    font-family: LatoBlack;
+    font-size: 8vw;
+}
+
+.notFoundContent h2 {
+    font-family: LatoLight;
+    font-size: 8vw;
+}
+
+.notFoundContent button {
+    border: none;
+    border-radius: 2vw;
+
+    padding: .75rem;
+
+    font-size: 4vw;
+    font-family: LatoBold;
+}
+
+.notFoundContent button:hover {
+    opacity: .9;
+
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1025px){
+    .notFoundContent{
+        gap: 4rem;
+    }
+
+    .notFoundContent h1{
+        font-size: 4rem;
+    }
+
+    .notFoundContent h2{
+        font-size: 4rem;
+    }
+
+    .notFoundContent button{
+        font-size: 1.5rem;
+
+        padding: 1.5rem;
+    }
+}
