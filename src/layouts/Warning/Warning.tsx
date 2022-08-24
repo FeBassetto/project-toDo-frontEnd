@@ -10,12 +10,14 @@ const Warning = (props: any) => {
     const typeMessage = props.type === 'success' ? styles.warning_success : styles.warning_error
 
     useEffect(() => {
-        setTimeout(() => {
-            props.setWarning({
-                message: '',
-                type: null
-            })
-        }, 5000)
+        if (props.type !== null) {
+            setTimeout(() => {
+                props.setWarning({
+                    message: '',
+                    type: null
+                })
+            }, 5000)
+        }
     }, [props])
 
     return (
