@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
+import { userActions } from "../../store/actions/userActions";
 import { warningActions } from "../../store/actions/warningActions";
 import Input from "../Input/Input";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import styles from './Form.module.css'
 
 const RegisterForm = (props: any) => {
-
-    console.log(props)
 
     const [user, setUser] = useState(
         {
@@ -28,32 +27,78 @@ const RegisterForm = (props: any) => {
                 value: ''
             },
             image: {
-                value: ''
+                value: { name: '' }
             }
         }
     )
 
-    const [preview, setPreview] = useState()
+    const [preview, setPreview] = useState(null)
 
     function handleChange(e: any) {
-        setUser({ ...user, [e.target.name]: e.target.value })
+        setUser({ ...user, [e.target.name]: { value: e.target.value } })
+    }
+
+    function setWarningMessage(type: null | String, message: String) {
+        props.setWarning({
+            message,
+            type
+        })
     }
 
     function fileChange(e: any) {
         const file = e.target.files[0]
+
         if (!String(file.name).includes('.png') && !String(file.name).includes('.jpg')) {
 
-            setPreview(undefined)
-            setUser({ ...user, image: { value: '' } })
-            console.log(props)
-            props.setWarning({
-                message: 'Apenas arquivos jpg e png são aceitos!',
-                type: 'error'
-            })
-            return
+            setPreview(null)
+            setWarningMessage('error', 'Apenas arquivos ".jpg" e ".png" são aceitos!')
+
+        } else {
+            setPreview(file)
         }
-        setPreview(file)
-        setUser({ ...user, [e.target.name]: file })
+
+        setUser({ ...user, image: { value: file } })
+    }
+
+    function handleSubmit(e: FormEvent) {
+
+        e.preventDefault()
+
+        if (!String(user.image.value.name).includes('.png') && !String(user.image.value.name).includes('.jpg')) {
+            return setWarningMessage('error', 'Apenas arquivos ".jpg" e ".png" são aceitos como imagem!')
+        }
+
+        if (user.name.value.length < 4) {
+            return setWarningMessage('error', 'Digite um nome com pelo menos 4 caracteres!')
+        }
+
+        if (user.phone.value.length < 10) {
+            return setWarningMessage('error', 'Digite um celular com ddd no formato "1498765432"!')
+        }
+
+        if (!user.email.value.includes('@') || !user.email.value.includes('.') || user.email.value.length < 6) {
+            return setWarningMessage('error', 'Digite um email válido!')
+        }
+
+        const regex = /\W|_/
+
+        if (user.password.value.length < 9 || !regex.test(user.password.value)) {
+            return setWarningMessage('error', 'Digite uma senha com no mínimo 9 caracteres, e use pelo menos um caracter especial (@ # $ % &)!')
+        }
+
+        if (user.password.value !== user.confirmpassword.value) {
+            return setWarningMessage('error', 'As senhas não estão compatíveis!')
+        }
+
+        return props.registerUser({
+            name: user.name.value,
+            image: user.image.value,
+            phone: user.phone.value,
+            email: user.email.value,
+            password: user.password.value,
+            confirmpassword: user.confirmpassword.value,
+        })
+
     }
 
     return (
@@ -63,7 +108,7 @@ const RegisterForm = (props: any) => {
                 src={preview}
                 alt={preview}
             />
-            <form>
+            <form onSubmit={e => handleSubmit(e)}>
                 <Input
                     type='file'
                     name='image'
@@ -79,9 +124,9 @@ const RegisterForm = (props: any) => {
                     value={user.name.value}
                 />
                 <Input
-                    type='text'
+                    type='number'
                     name='phone'
-                    placeholder='Digite seu celular'
+                    placeholder='Digite seu celular com DDD'
                     handleOnChange={handleChange}
                     value={user.phone.value}
                 />
@@ -101,7 +146,7 @@ const RegisterForm = (props: any) => {
                 />
                 <Input
                     type='password'
-                    name='password'
+                    name='confirmpassword'
                     placeholder='Confirme sua senha'
                     handleOnChange={handleChange}
                     value={user.confirmpassword.value}

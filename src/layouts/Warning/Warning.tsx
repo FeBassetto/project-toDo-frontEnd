@@ -13,7 +13,7 @@ const Warning = (props: any) => {
         if (props.type !== null) {
             setTimeout(() => {
                 props.setWarning({
-                    message: '',
+                    message: props.message,
                     type: null
                 })
             }, 5000)

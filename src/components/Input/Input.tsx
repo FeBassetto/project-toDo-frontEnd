@@ -16,27 +16,37 @@ const Input = ({ type, name, placeholder, handleOnChange, value }: IInputCompone
 
     return (
         <StyledInput className={styles.input}>
-            <input
-                autoComplete='false'
-                autoCapitalize="false"
-                onBlur={() => {
-                    if (value.length < 1) {
-                        setFocusInput(false)
-                    }
-                }}
-                onFocus={() => setFocusInput(true)}
-                name={name}
-                type={type}
-                placeholder='.'
-                onChange={handleOnChange}
-                value={value}
-            />
-            <p
-                className={`${styles.input__placeholder} ${focusInput ? styles.input__placeholder_disable : styles.input__placeholder_active}`}
-                onClick={(e: any) => e.target.parentNode.firstChild.focus()}
-            >
-                {placeholder}
-            </p>
+            {type !== 'file' ?
+                <>
+                    <input
+                        autoComplete='false'
+                        autoCapitalize="false"
+                        onBlur={() => {
+                            if (value.length < 1) {
+                                setFocusInput(false)
+                            }
+                        }}
+                        onFocus={() => setFocusInput(true)}
+                        name={name}
+                        type={type}
+                        placeholder='.'
+                        onChange={handleOnChange}
+                        value={value}
+                    />
+                    <p
+                        className={`${styles.input__placeholder} ${focusInput ? styles.input__placeholder_disable : styles.input__placeholder_active}`}
+                        onClick={(e: any) => e.target.parentNode.firstChild.focus()}
+                    >
+                        {placeholder}
+                    </p>
+                </>
+                :
+                <input
+                    name={name}
+                    type={type}
+                    onChange={handleOnChange}
+                />
+            }
         </StyledInput>
     )
 }
