@@ -44,7 +44,7 @@ const DesktopHeader = (props: any) => {
                                     <FaUser />
                                 </Link>
                             </li>
-                            <li id={styles.exitButton}>
+                            <li id={styles.exitButton} onClick={() => props.logOut()}>
                                 <Link to='/'>
                                     Sair
                                 </Link>

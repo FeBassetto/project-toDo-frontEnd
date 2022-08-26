@@ -6,6 +6,8 @@ import styles from './Footer.module.css'
 import { RiTodoLine } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
+import { userActions } from "../../store/actions/userActions";
 
 
 const StyledFooter = styled.footer`
@@ -24,6 +26,16 @@ const StyledFooter = styled.footer`
 `
 
 const Footer = (props: any) => {
+
+    function logOut() {
+        props.addToReducer({
+            token: null,
+            name: null,
+            image: null,
+            email: null,
+            phone: null,
+        })
+    }
 
     return (
         <StyledFooter className={styles.footer}>
@@ -50,7 +62,7 @@ const Footer = (props: any) => {
                             <li>
                                 <Link to='/profile'>Perfil</Link>
                             </li>
-                            <li>
+                            <li onClick={() => logOut()}>
                                 <Link to='/'>Sair</Link>
                             </li>
                         </>
@@ -75,9 +87,11 @@ const Footer = (props: any) => {
     )
 }
 
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(userActions, dispatch)
+
 const mapStateToProps = (state: any) => ({
     token: state.userReducer.token
 
 })
 
-export default connect(mapStateToProps, null)(Footer)
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)

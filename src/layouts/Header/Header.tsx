@@ -8,6 +8,9 @@ import IStyledTheme from "../../models/IStyledTheme";
 import MobileHeader from "./MobileHeader/MobileHeader";
 import DesktopHeader from "./DesktopHeader/DesktopHeader";
 import { Link } from "react-router-dom";
+import { bindActionCreators, Dispatch } from "redux";
+import { userActions } from "../../store/actions/userActions";
+import { connect } from "react-redux";
 
 const StyledHeader = styled.header`
     background-color: ${({ theme }: IStyledTheme) => theme.headerBackground};
@@ -15,7 +18,18 @@ const StyledHeader = styled.header`
     border-bottom: 2px solid ${({ theme }: IStyledTheme) => theme.headerColor};
 `
 
-const Header = () => {
+const Header = (props: any) => {
+
+    function logOut() {
+        props.addToReducer({
+            token: null,
+            name: null,
+            image: null,
+            email: null,
+            phone: null,
+        })
+    }
+
     return (
         <StyledHeader className={styles.header}>
             <span className={styles.header__logo}>
@@ -25,13 +39,16 @@ const Header = () => {
                 </Link>
             </span>
             <div className={styles.header__mobile}>
-                <MobileHeader />
+                <MobileHeader logOut={logOut} />
             </div>
             <div className={styles.header__desktop}>
-                <DesktopHeader />
+                <DesktopHeader logOut={logOut} />
             </div>
         </StyledHeader>
     )
 }
 
-export default Header
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(userActions, dispatch)
+
+export default connect(null, mapDispatchToProps)(Header)

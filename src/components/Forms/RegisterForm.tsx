@@ -2,7 +2,6 @@ import React, { FormEvent, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators, Dispatch } from "redux";
-import { userActions } from "../../store/actions/userActions";
 import { warningActions } from "../../store/actions/warningActions";
 import Input from "../Input/Input";
 import Loader from "../Loader/Loader";

@@ -56,7 +56,11 @@ const MobileHeader = (props: any) => {
                             <li onClick={() => toggleMenu()}>
                                 <Link to='/profile'>Perfil</Link>
                             </li>
-                            <li onClick={() => toggleMenu()}>
+                            <li onClick={() => {
+                                toggleMenu()
+                                props.logOut()
+                            }
+                            }>
                                 <Link to='/'>Sair</Link>
                             </li>
                         </>
