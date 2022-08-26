@@ -1,0 +1,144 @@
+.homeContent {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homeContent h1 {
+    width: 100%;
+
+    font-size: 10vw;
+    font-family: LatoBold;
+
+    line-height: 14vw;
+
+    text-align: center;
+}
+
+.homeContent__container {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5rem;
+}
+
+.container__info {
+    display: grid;
+    grid-template-areas:
+        "title title title"
+        "image image image"
+        "button button button"
+    ;
+    gap: .5rem;
+
+    width: 100%;
+}
+
+.container__info h1 {
+    grid-area: title;
+
+    text-align: center;
+
+    font-size: 10vw;
+    font-family: LatoLight;
+}
+
+.container__info img {
+    grid-area: image;
+
+    width: 80vw;
+    max-width: 400px;
+    height: 80vw;
+    max-height: 400px;
+    object-fit: cover;
+
+    margin: auto;
+
+    border-radius: 10px;
+}
+
+.container__info button {
+    grid-area: button;
+
+    padding: .5rem;
+
+    border-radius: 10px;
+    border: none;
+
+    font-size: 8vw;
+    font-family: LatoLight;
+}
+
+.container__info button:hover{
+    opacity: .7;
+
+    cursor: pointer;
+}
+
+@media screen and (min-width: 550px) {
+
+    .homeContent h1 {
+        width: 100%;
+
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+
+    .container__info button {
+        font-size: 2rem;
+
+        width: 400px;
+
+        margin: auto;
+    }
+
+    .container__info h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width:1025px) {
+
+    .homeContent__container{
+        flex-direction: row;
+
+        justify-content: space-around;
+    }
+
+    .container__info {
+        grid-template-areas:
+            "image title title title"
+            "image button button button"
+        ;
+
+        width: 45%;
+    }
+
+    .homeContent h1 {
+        width: 100%;
+
+        font-size: 4rem;
+        line-height: 6rem;
+    }
+
+    .homeContent img{
+        height: 20vw;
+        width: 20vw;
+    }
+
+    .container__info button {
+        font-size: 1.5rem;
+
+        width: 90%;
+        height: 70%;
+    }
+
+    .container__info h1 {
+        font-size: 2rem;
+        width: 20vw;
+    }
+}

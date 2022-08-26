@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { bindActionCreators, Dispatch } from "redux";
 import { warningActions } from "../../store/actions/warningActions";
 import Input from "../Input/Input";
-import Loader from "../Loader/Loader";
 import ProfileImage from "../ProfileImage/ProfileImage";
-import UserLogged from "../UserLogged/UserLogged";
 import styles from './Form.module.css'
 
 const RegisterForm = (props: any) => {
