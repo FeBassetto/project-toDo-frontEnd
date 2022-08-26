@@ -39,12 +39,33 @@
     opacity: .7;
 }
 
+.form input[type=button] {
+    background-color: rgb(164, 37, 37);
+    color: #ffffff;
+
+    font-size: 1.5rem;
+    font-family: LatoLight;
+
+    padding: 0.5rem;
+
+    border-radius: 10px;
+    border: none;
+}
+
+.form input[type=button]:hover {
+    cursor: pointer;
+
+    opacity: .7;
+}
+
 .form__link {
     margin: 3rem 0 0 0;
 
     font-size: 1.2rem;
     font-family: LatoLight;
     font-weight: bolder;
+
+    text-align: center;
 }
 
 .form__link a {

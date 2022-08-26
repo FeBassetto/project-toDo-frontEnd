@@ -13,7 +13,6 @@ const composeEnhancers = typeof window === 'object' &&
     }) : compose;
 const localStorage = loadState()
 
-
 const store = createStore(
     reducers,
     localStorage,

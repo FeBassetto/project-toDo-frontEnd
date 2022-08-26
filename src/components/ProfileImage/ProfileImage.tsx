@@ -5,7 +5,7 @@ const ProfileImage = ({ src, alt }: any) => {
 
     return (
         <img src={src !== null ?
-            URL.createObjectURL(src)
+            src?.name ? URL.createObjectURL(src) : `${process.env.REACT_APP_BASE_URL_IMAGE}/${src}`
             :
             `${process.env.REACT_APP_BASE_URL_IMAGE}/nullimage.jpg`
         }

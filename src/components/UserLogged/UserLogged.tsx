@@ -15,7 +15,7 @@ const UserLogged = () => {
 
     return (
         <div className={styles.userlogged}>
-            <p>Usuário logado, crie sua primeira Task!</p>
+            <p>Usuário logado, crie uma Task!</p>
             <StyledButton onClick={() => navigate('/tasks/create')}>Criar Task</StyledButton>
         </div>
     )

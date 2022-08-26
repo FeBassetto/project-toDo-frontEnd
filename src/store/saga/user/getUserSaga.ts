@@ -31,7 +31,7 @@ function* getUser({ payload }: any) {
         } = getUser.data.message
 
         yield put(userActions.addToReducer({ name, image, email, phone, token }))
-        yield put(warningActions.setWarning({ type: 'success', message: 'Logado com sucesso!' }))
+        yield put(warningActions.setWarning({ type: 'success', message: 'Ação bem sucedida!' }))
         yield put(loadingActions.setloading(false))
 
     } catch (err: any) {
