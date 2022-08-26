@@ -1,5 +1,5 @@
 import { warningTypes } from './../actions/warningActions';
-import IStateWarning from "../../models/IStateWarning"
+import IStateWarning from "../../models/states/IStateWarning"
 
 const initialState: IStateWarning = {
     type: null,

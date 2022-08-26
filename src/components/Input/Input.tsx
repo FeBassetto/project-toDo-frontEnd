@@ -19,7 +19,7 @@ const Input = ({ type, name, placeholder, handleOnChange, value }: IInputCompone
             {type !== 'file' ?
                 <>
                     <input
-                        autoComplete='false'
+                        autoComplete="chrome-off"
                         autoCapitalize="false"
                         onBlur={() => {
                             if (value.length < 1) {

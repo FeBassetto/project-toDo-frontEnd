@@ -1,4 +1,4 @@
-.form{
+.form {
     min-height: 60vh;
 
     display: flex;
@@ -7,19 +7,19 @@
     flex-direction: column;
 }
 
-.form h1{
+.form h1 {
     font-size: 2.75rem;
     font-family: LatoLight;
 }
 
-.form form{
+.form form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.form input[type=submit]{
+.form input[type=submit] {
     background-color: #688e2f;
     color: #ffffff;
 
@@ -29,10 +29,35 @@
     padding: 1rem;
 
     font-family: LatoBold;
+
+    width: 50%;
 }
 
-.form input[type=submit]:hover{
+.form input[type=submit]:hover {
     cursor: pointer;
 
     opacity: .7;
+}
+
+.form__link {
+    margin: 3rem 0 0 0;
+
+    font-size: 1.25rem;
+    font-family: LatoLight;
+    font-weight: bolder;
+}
+
+.form__link a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+@media screen and (min-width:550px) {
+    .form input[type=submit] {
+        font-size: 1.5rem;
+    }
+
+    .form__link {
+        font-size: 1.5rem;
+    }
 }

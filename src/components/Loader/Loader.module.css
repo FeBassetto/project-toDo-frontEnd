@@ -1,0 +1,26 @@
+.loader{
+    width: 100%;
+    height: 40vh;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.loader__spinner{
+    animation: spinner 1s infinite;
+
+    font-size: 5rem;
+
+    color: inherit;
+}
+
+@keyframes spinner {
+    0%{
+        rotate: 0;
+    }
+
+    100%{
+        rotate: 360deg;
+    }
+}

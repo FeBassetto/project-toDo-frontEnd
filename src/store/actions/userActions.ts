@@ -1,4 +1,4 @@
-import IStateUser from "../../models/IStateUser"
+import IStateUser from "../../models/states/IStateUser"
 
 export const userTypes = {
     REGISTER_USER: 'user/REGISTER_USER',
@@ -6,6 +6,7 @@ export const userTypes = {
     GET_USER: 'user/GET_USER',
     EDIT_USER: 'user/EDIT_USER',
     DELETE_USER: 'user/DELETE_USER',
+    ADD_TO_REDUCER: 'user/ADD_TO_REDUCER'
 }
 
 export const userActions = {
@@ -38,5 +39,12 @@ export const userActions = {
     deleteUser: () => ({
         type: userTypes.DELETE_USER,
         payload: {}
+    }),
+
+    addToReducer: (userInfo: IStateUser) => ({
+        type: userTypes.ADD_TO_REDUCER,
+        payload: {
+            userInfo
+        }
     })
 }

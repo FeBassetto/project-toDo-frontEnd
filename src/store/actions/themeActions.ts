@@ -1,4 +1,4 @@
-import ITheme from "../../models/IStateTheme"
+import ITheme from "../../models/states/IStateTheme"
 
 export const Types = {
     CHANGE_THEME: 'theme/CHANGE_THEME'

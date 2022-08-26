@@ -7,8 +7,8 @@ import { userActions } from "../store/actions/userActions";
 const Register = (props: any) => {
     return (
         <section>
-            <RegisterForm 
-            registerUser={props.registerUser}
+            <RegisterForm
+                registerUser={props.registerUser}
             />
         </section>
     )

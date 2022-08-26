@@ -1,4 +1,4 @@
-import IStateWarning from "../../models/IStateWarning";
+import IStateWarning from "../../models/states/IStateWarning";
 
 export const warningTypes = {
     SET_WARNING: 'warning/SET_WARNING'

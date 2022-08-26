@@ -1,4 +1,4 @@
-import ITheme from "../../models/IStateTheme"
+import ITheme from "../../models/states/IStateTheme"
 import { Types } from "../actions/themeActions"
 
 const initialState: ITheme = {
