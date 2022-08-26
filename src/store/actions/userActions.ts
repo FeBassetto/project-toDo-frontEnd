@@ -24,9 +24,11 @@ export const userActions = {
         }
     }),
 
-    getUser: () => ({
+    getUser: (token: String) => ({
         type: userTypes.GET_USER,
-        payload: {}
+        payload: {
+            token
+        }
     }),
 
     editUser: (userInfo: IStateUser) => ({

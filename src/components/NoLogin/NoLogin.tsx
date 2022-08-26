@@ -17,8 +17,8 @@ const NoLogin = () => {
         <section className={styles.nologin}>
             <div className={styles.nologin__box}>
                 <p>Comece sua organização com ToDo</p>
-                <StyledButton onClick={() => navigate('/register')}>
-                    Entrar
+                <StyledButton onClick={() => navigate('/login')}>
+                    Login
                 </StyledButton>
             </div>
         </section>
