@@ -38,9 +38,12 @@ export const userActions = {
         }
     }),
 
-    deleteUser: () => ({
+    deleteUser: ({ email, password}: any) => ({
         type: userTypes.DELETE_USER,
-        payload: {}
+        payload: {
+            email,
+            password
+        }
     }),
 
     addToReducer: (userInfo: IStateUser) => ({

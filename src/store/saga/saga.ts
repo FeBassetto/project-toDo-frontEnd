@@ -3,12 +3,14 @@ import editUserSaga from './user/editUserSaga'
 import getUserSaga from './user/getUserSaga'
 import loginUserSaga from './user/loginUserSaga'
 import registerUserSaga from './user/registerUserSaga'
+import deleteUserSaga from './user/deleteUserSaga'
 
 export default function* saga() {
     yield all([
         fork(registerUserSaga),
         fork(loginUserSaga),
         fork(getUserSaga),
-        fork(editUserSaga)
+        fork(editUserSaga),
+        fork(deleteUserSaga)
     ])
 }

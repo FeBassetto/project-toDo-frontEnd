@@ -10,6 +10,8 @@
 .form h1 {
     font-size: 2.75rem;
     font-family: LatoLight;
+
+    text-align: center;
 }
 
 .form form {
@@ -81,4 +83,8 @@
     .form__link {
         font-size: 1.5rem;
     }
+}
+
+#form__danger{
+    background-color: #bf2929;
 }

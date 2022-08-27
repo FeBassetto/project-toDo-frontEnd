@@ -1,8 +1,7 @@
 import { loadingActions } from '../../actions/loadingActions';
 import { warningActions } from '../../actions/warningActions';
-import { AxiosResponse } from 'axios';
 import { userActions, userTypes } from '../../actions/userActions';
-import { call, put, select, takeLatest } from "redux-saga/effects"
+import { call, put, takeLatest } from "redux-saga/effects"
 import api from '../../../services/api';
 
 

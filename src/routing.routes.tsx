@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import DeleteUser from "./pages/DeleteUser";
 
 //Layouts
 import Header from "./layouts/Header/Header";
@@ -25,6 +26,7 @@ const Routing = () => {
                     <Route path='/register' element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile/delete" element={<DeleteUser />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </Container>
