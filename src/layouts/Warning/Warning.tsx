@@ -12,7 +12,11 @@ const Warning = (props: any) => {
     useEffect(() => {
         if (props.type !== null) {
 
-            setTimeout(() => {
+            let timer
+
+            clearTimeout(timer)
+
+            timer = setTimeout(() => {
                 props.setWarning({
                     message: props.message,
                     type: null

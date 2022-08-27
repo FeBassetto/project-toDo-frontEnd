@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import DeleteUser from "./pages/DeleteUser";
+import Tasks from "./pages/Tasks";
 
 //Layouts
 import Header from "./layouts/Header/Header";
@@ -27,6 +28,7 @@ const Routing = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/profile/delete" element={<DeleteUser />} />
+                    <Route path="/tasks" element={<Tasks />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </Container>

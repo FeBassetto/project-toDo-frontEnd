@@ -1,0 +1,37 @@
+.taskfilter{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.taskfilter__checkbox{
+    font-size: 1.25rem;
+    font-family: LatoLight;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.taskfilter__checkbox input{
+    height: 25px;
+    width: 25px;
+}
+
+.taskfilter__checkbox input:hover{
+    cursor: pointer;
+}
+
+@media screen and (min-width:550px){
+    .taskfilter{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .taskfilter__checkbox{
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
