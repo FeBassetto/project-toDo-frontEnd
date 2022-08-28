@@ -1,0 +1,25 @@
+.tasks{
+    width: 100%;
+    min-height: 50vh;
+
+    border-radius: 10px;
+}
+
+.tasks__empty{
+    width: 100%;
+    height: 50vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tasks__empty h1{
+    font-size: 1.75rem;
+    font-family: LatoLight;
+    font-weight: bolder;
+
+    text-align: center;
+
+    padding: 0 1rem;
+}

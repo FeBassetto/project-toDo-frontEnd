@@ -1,20 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
+import { taskActions } from "../../store/actions/taskActions";
 import Input from "../Input/Input";
 import styles from './TasksFilter.module.css';
 
-
 const TaskFilter = (props: any) => {
 
-    const [search, setSearch] = useState('')
-    const [concluded, setConcluded] = useState(false)
-
-    function handleChange(e: any){
-        setSearch(e.target.value)
-    }
+    const [search, setSearch] = useState(props.search)
+    const [concluded, setConcluded] = useState(props.concluded)
+    const [debounce, setDebounce]: any = useState(null)
 
     useEffect(() => {
+        clearTimeout(debounce);
 
-    }, [concluded, search])
+        setDebounce(setTimeout(function () {
+            if (props.search !== search) {
+                props.addToReducer({ search, concludedFilter: concluded ? true : false })
+            }
+        }, 3000))
+    }, [search])
+
+    useEffect(() => {
+        if (props.concluded !== concluded) {
+            props.addToReducer({ search, concludedFilter: concluded ? true : false })
+        }
+    }, [concluded])
+
 
     return (
         <div className={styles.taskfilter}>
@@ -22,15 +35,24 @@ const TaskFilter = (props: any) => {
                 type='text'
                 name='title'
                 placeholder='Pesquise uma Task'
-                handleOnChange={handleChange}
+                handleOnChange={(e: any) => {
+                    setSearch(e.target.value)
+                }}
                 value={search}
             />
             <div className={styles.taskfilter__checkbox}>
-                Tasks concluídas 
-                <input type="checkbox" name="concluded" checked={concluded} onChange={() => setConcluded(!concluded)}/>
+                Tasks concluídas
+                <input type="checkbox" name="concluded" checked={concluded} onChange={() => setConcluded(!concluded)} />
             </div>
         </div>
     )
 }
 
-export default TaskFilter
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(taskActions, dispatch)
+
+const mapStateToProps = (state: any) => ({
+    concludedFilter: state.taskReducer.concludedFilter,
+    search: state.taskReducer.search
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskFilter)

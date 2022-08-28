@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import Loader from "../components/Loader/Loader";
+import NewTaskButton from "../components/NewTaskButton/NewTaskButton";
 import NoLogin from "../components/NoLogin/NoLogin";
+import TasksContent from "../components/TasksContent/TasksContent";
 import TaskFilter from "../components/TasksFilter/TasksFilter";
 
 
@@ -17,7 +19,11 @@ const Tasks = (props: any) => {
                 <Loader />
             )}
             {props.token && !props.loading && (
-                <TaskFilter />
+                <>
+                    <TaskFilter />
+                    <NewTaskButton />
+                    <TasksContent />
+                </>
             )}
         </section>
     )

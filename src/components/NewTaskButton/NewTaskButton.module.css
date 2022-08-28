@@ -1,0 +1,38 @@
+.newTaskContainer{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.newTask {
+    margin: 1rem auto;
+
+    border: none;
+    background-color: #247924;
+    color: #ffffff;
+
+    width: 100%;
+
+    padding: .5rem;
+
+    border-radius: 10px;
+
+    font-family: LatoLight;
+}
+
+.newTask:hover{
+    cursor: pointer;
+
+    opacity: .8;
+}
+
+@media screen and (min-width:550px) {
+    .newTask {
+        padding: 1rem;
+
+        font-size: 1.25rem;
+
+        max-width: 1150px;
+    }
+}
