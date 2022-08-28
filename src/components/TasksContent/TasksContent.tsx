@@ -22,18 +22,20 @@ const TasksContent = (props: any) => {
 
     useEffect(() => {
 
-        getAllTasks({ title: search, concluded: concludedFilter })
+        if (tasks === null) {
+            getAllTasks()
+        }
 
     }, [tasks, search, concludedFilter, getAllTasks])
 
     return (
         <StyledContent className={styles.tasks}>
-            {tasks.length < 1 && (
+            {(tasks?.length < 1 || tasks === null) && (
                 <div className={styles.tasks__empty}>
-                    <h1>Nenhuma Task criada!</h1>
+                    <h1>Nenhuma Task encontrada!</h1>
                 </div>
             )}
-            {tasks.length > 0 && (
+            {(tasks?.length > 0 || tasks !== null) && (
                 <>
                     {tasks.map((task: ItaskInfos) => (
                         <h1>{task.title}</h1>

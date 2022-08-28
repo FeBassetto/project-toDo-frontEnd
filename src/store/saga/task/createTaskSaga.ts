@@ -2,8 +2,7 @@ import { warningActions } from './../../actions/warningActions';
 import { loadingActions } from './../../actions/loadingActions';
 import { put } from 'redux-saga/effects';
 import { call } from 'redux-saga/effects';
-import { AxiosResponse } from 'axios';
-import { taskTypes } from './../../actions/taskActions';
+import { taskActions, taskTypes } from './../../actions/taskActions';
 import { select, takeLatest } from 'redux-saga/effects';
 import api from '../../../services/api';
 
@@ -18,9 +17,7 @@ function* createTask({ payload }: any) {
         limitDate
     } = payload.taskInfo
 
-    const token: string = yield select((state: any) => (state.userReducer.token))
-
-    console.log(String(token))
+    const token: string = yield select(state => state.userReducer.token)
 
     try {
 
@@ -39,6 +36,7 @@ function* createTask({ payload }: any) {
             }
         )
 
+        yield put(taskActions.getAllTasks())
         yield put(warningActions.setWarning({ type: 'success', message: 'Task criada com sucesso!' }))
         yield put(loadingActions.setloading(false))
 

@@ -5,7 +5,7 @@ export interface ItaskInfos{
 }
 
 export default interface IStateTask {
-    tasks: Array<ItaskInfos>,
+    tasks: Array<ItaskInfos> | null,
     concludedFilter: Boolean,
     search: String | null
 }

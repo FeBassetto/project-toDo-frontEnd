@@ -3,7 +3,7 @@ import { taskTypes } from "../actions/taskActions";
 
 
 const initialState: IStateTask = {
-    tasks: [],
+    tasks: null,
     concludedFilter: false,
     search: ''
 }
@@ -12,7 +12,16 @@ export default function taskReducer(state = initialState, action: any) {
     switch (action.type) {
         case taskTypes.ADD_TO_REDUCER:
             return {
-                ...action.payload.taskInfo
+                ...state,
+                tasks: [
+                    ...action.payload.tasks
+                ]
+            }
+        case taskTypes.ADD_FILTER:
+            return {
+                ...state,
+                search: action.payload.search,
+                concludedFilter: action.payload.concludedFilter
             }
         default:
             return state

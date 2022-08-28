@@ -1,9 +1,4 @@
-import IStateTask from "../../models/states/IStateTask"
-
-interface IgetAllTasks {
-    title: String,
-    concluded: Boolean
-}
+import IStateTask, { ItaskInfos } from "../../models/states/IStateTask"
 
 export const taskTypes = {
     CREATE_TASK: 'task/CREATE_TASK',
@@ -11,7 +6,8 @@ export const taskTypes = {
     GET_TASK_BY_ID: 'task/GET_TASK_BY_ID',
     EDIT_TASK: 'task/EDIT_TASK',
     DELETE_TASK: 'task/DELETE_TASK',
-    ADD_TO_REDUCER: 'task/ADD_TO_REDUCER'
+    ADD_TO_REDUCER: 'task/ADD_TO_REDUCER',
+    ADD_FILTER: 'task/ADD_FILTER'
 }
 
 export const taskActions = {
@@ -22,11 +18,9 @@ export const taskActions = {
         }
     }),
 
-    getAllTasks: (payload: IgetAllTasks) => ({
+    getAllTasks: () => ({
         type: taskTypes.GET_ALL_TASKS,
-        payload: {
-            payload
-        }
+        payload: {}
     }),
 
     getTaskById: (id: String) => ({
@@ -50,10 +44,18 @@ export const taskActions = {
         }
     }),
 
-    addToReducer: (taskInfo: IStateTask) => ({
+    addToReducer: (tasks: Array<ItaskInfos>) => ({
         type: taskTypes.ADD_TO_REDUCER,
         payload: {
-            taskInfo
+            tasks
+        }
+    }),
+
+    addFilters: ({ search, concludedFilter }: any) => ({
+        type: taskTypes.ADD_FILTER,
+        payload: {
+            search,
+            concludedFilter
         }
     })
 }

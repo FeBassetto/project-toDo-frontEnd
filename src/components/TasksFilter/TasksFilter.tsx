@@ -9,7 +9,7 @@ import styles from './TasksFilter.module.css';
 const TaskFilter = (props: any) => {
 
     const [search, setSearch] = useState(props.search)
-    const [concluded, setConcluded] = useState(props.concluded)
+    const [concluded, setConcluded] = useState(props.concludedFilter)
     const [debounce, setDebounce]: any = useState(null)
 
     useEffect(() => {
@@ -17,14 +17,16 @@ const TaskFilter = (props: any) => {
 
         setDebounce(setTimeout(function () {
             if (props.search !== search) {
-                props.addToReducer({ search, concludedFilter: concluded ? true : false })
+                props.addFilters({ search, concludedFilter: concluded ? true : false })
+                props.getAllTasks()
             }
-        }, 3000))
+        }, 2000))
     }, [search])
 
     useEffect(() => {
-        if (props.concluded !== concluded) {
-            props.addToReducer({ search, concludedFilter: concluded ? true : false })
+        if (props.concludedFilter !== concluded) {
+            props.addFilters({ search, concludedFilter: concluded ? true : false })
+            props.getAllTasks()
         }
     }, [concluded])
 
