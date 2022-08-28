@@ -22,6 +22,8 @@ function* editUser({ payload }: any) {
 
     const requestImage = noImage ? { noImage } : { image }
 
+    console.log(token)
+
     try {
 
         yield call(

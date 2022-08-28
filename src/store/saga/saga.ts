@@ -4,6 +4,7 @@ import getUserSaga from './user/getUserSaga'
 import loginUserSaga from './user/loginUserSaga'
 import registerUserSaga from './user/registerUserSaga'
 import deleteUserSaga from './user/deleteUserSaga'
+import createtaskSaga from './task/createTaskSaga'
 
 export default function* saga() {
     yield all([
@@ -11,6 +12,7 @@ export default function* saga() {
         fork(loginUserSaga),
         fork(getUserSaga),
         fork(editUserSaga),
-        fork(deleteUserSaga)
+        fork(deleteUserSaga),
+        fork(createtaskSaga)
     ])
 }

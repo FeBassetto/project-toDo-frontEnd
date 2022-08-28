@@ -30,7 +30,7 @@ const Routing = () => {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/profile/delete" element={<DeleteUser />} />
                     <Route path="/tasks" element={<Tasks />} />
-                    <Route path="/tasks/newTask" element={<NewTask />} />
+                    <Route path="/tasks/create" element={<NewTask />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </Container>

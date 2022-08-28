@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './Form.module.css';
 import Input from "../Input/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import IStyledTheme from "../../models/IStyledTheme";
 import { bindActionCreators, Dispatch } from "redux";
@@ -15,6 +15,8 @@ const StyledTextArea = styled.textarea`
 `
 
 const NewTaskForm = (props: any) => {
+
+    const navigate = useNavigate()
 
     const [task, setTask] = useState({
         title: '',
@@ -73,6 +75,8 @@ const NewTaskForm = (props: any) => {
         const limitDate = new Date(Number(year), Number(month), Number(day)).getTime() / 1000
 
         props.createTask({title: task.title, description: task.description, limitDate})
+
+        navigate('/tasks')
     }
 
     return (

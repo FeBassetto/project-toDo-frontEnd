@@ -8,7 +8,7 @@ const NewTaskButton = () => {
 
     return (
         <div className={styles.newTaskContainer}>
-            <button className={styles.newTask} onClick={() => navigate('/tasks/newTask')}>
+            <button className={styles.newTask} onClick={() => navigate('/tasks/create')}>
                 Criar nova Task
             </button>
         </div>
