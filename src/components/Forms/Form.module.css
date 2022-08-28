@@ -75,6 +75,43 @@
     text-decoration: underline;
 }
 
+textarea{
+    width: 100%;
+    height: 125px;
+
+    box-sizing: border-box;
+
+    margin: 1rem 0;
+    padding: 1rem;
+
+    font-size: .75rem;
+    font-family: LatoLight;
+}
+
+.form__date{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: .25rem;
+
+    margin: 0 0 2rem;
+
+    font-family: LatoLight;
+    font-weight: bolder;
+}
+
+.form__date input{
+    width: 100%;
+    padding: .5rem;
+
+    text-align: center;
+}
+
 @media screen and (min-width:550px) {
     .form input[type=submit] {
         font-size: 1.5rem;
@@ -83,8 +120,22 @@
     .form__link {
         font-size: 1.5rem;
     }
+
+    textarea{
+        font-size: 1.25rem;
+    }
+
+    .form__date{
+        font-size: 1.5rem;
+        gap: .5rem;
+    }
+
+    .form__date input{
+        font-size: 1.25rem;
+    }
 }
 
 #form__danger{
     background-color: #bf2929;
 }
+

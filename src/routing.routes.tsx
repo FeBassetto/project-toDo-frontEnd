@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import DeleteUser from "./pages/DeleteUser";
 import Tasks from "./pages/Tasks";
+import NewTask from "./pages/NewTask";
 
 //Layouts
 import Header from "./layouts/Header/Header";
@@ -29,6 +30,7 @@ const Routing = () => {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/profile/delete" element={<DeleteUser />} />
                     <Route path="/tasks" element={<Tasks />} />
+                    <Route path="/tasks/newTask" element={<NewTask />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </Container>

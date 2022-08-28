@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
+import NewTaskForm from "../components/Forms/NewTaskForm";
 import Loader from "../components/Loader/Loader";
-import NewTaskButton from "../components/NewTaskButton/NewTaskButton";
 import NoLogin from "../components/NoLogin/NoLogin";
-import TasksContent from "../components/TasksContent/TasksContent";
-import TaskFilter from "../components/TasksFilter/TasksFilter";
+import { taskActions } from "../store/actions/taskActions";
 
-
-const Tasks = (props: any) => {
+const NewTask = (props: any) => {
     return (
         <section>
             {!props.token && !props.loading && (
@@ -17,20 +16,20 @@ const Tasks = (props: any) => {
             {props.loading && (
                 <Loader />
             )}
-            {props.token && !props.loading && (
-                <>
-                    <TaskFilter />
-                    <NewTaskButton />
-                    <TasksContent />
-                </>
+            {!props.loading && props.token && (
+                <NewTaskForm
+                    createTask={props.createTask}
+                />
             )}
         </section>
     )
 }
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(taskActions, dispatch)
 
 const mapStateToProps = (state: any) => ({
     loading: state.loadingReducer.loading,
     token: state.userReducer.token
 })
 
-export default connect(mapStateToProps, null)(Tasks)
+export default connect(mapStateToProps, mapDispatchToProps)(NewTask)
