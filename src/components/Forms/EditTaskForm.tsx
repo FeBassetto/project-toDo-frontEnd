@@ -18,11 +18,11 @@ const EditTaskForm = (props: any) => {
 
     const navigate = useNavigate()
 
-    const taskById = props.task[0]
+    const taskById = props.task
 
     const { id, concluded } = taskById
 
-    const dateById: Date = new Date(props.task[0].limitDate.seconds * 1000)
+    const dateById: Date = new Date(taskById.limitDate.seconds * 1000)
 
     const dayById = String(dateById.getDate()).padStart(2, '0')
     const monthById = String(dateById.getMonth()).padStart(2, '0')
@@ -86,7 +86,7 @@ const EditTaskForm = (props: any) => {
             return setWarningMessage('error', 'Digite uma data limite maior que a atual!')
         }
 
-        const limitDateData = new Date(Number(year), Number(month), Number(day)).getTime() / 1000
+        const limitDateData = new Date(Number(year), Number(month) - 1, Number(day)).getTime() / 1000
 
         const limitDate = {
             seconds: limitDateData

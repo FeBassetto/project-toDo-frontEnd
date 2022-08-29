@@ -7,7 +7,8 @@ export const taskTypes = {
     EDIT_TASK: 'task/EDIT_TASK',
     DELETE_TASK: 'task/DELETE_TASK',
     ADD_TO_REDUCER: 'task/ADD_TO_REDUCER',
-    ADD_FILTER: 'task/ADD_FILTER'
+    ADD_FILTER: 'task/ADD_FILTER',
+    ADD_BY_ID: 'task/ADD_BY_ID'
 }
 
 export const taskActions = {
@@ -60,6 +61,13 @@ export const taskActions = {
         payload: {
             search,
             concludedFilter
+        }
+    }),
+
+    addById: (task: any) => ({
+        type: taskTypes.ADD_BY_ID,
+        payload: {
+            task
         }
     })
 }

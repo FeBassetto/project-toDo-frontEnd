@@ -8,6 +8,7 @@ import createtaskSaga from './task/createTaskSaga'
 import getAllTasksSaga from './task/getAllTasksSaga'
 import deleteTaskSaga from './task/deleteTaskSaga'
 import editTaskSaga from './task/editTaskSaga'
+import getTaskByIdSaga from './task/getTaskByIdSaga'
 
 export default function* saga() {
     yield all([
@@ -19,6 +20,7 @@ export default function* saga() {
         fork(createtaskSaga),
         fork(getAllTasksSaga),
         fork(deleteTaskSaga),
-        fork(editTaskSaga)
+        fork(editTaskSaga),
+        fork(getTaskByIdSaga)
     ])
 }

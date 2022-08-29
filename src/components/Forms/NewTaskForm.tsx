@@ -76,7 +76,7 @@ const NewTaskForm = (props: any) => {
             return setWarningMessage('error', 'Digite uma data limite maior que a atual!')
         }
 
-        const limitDate = new Date(Number(year), Number(month), Number(day)).getTime() / 1000
+        const limitDate = new Date(Number(year), Number(month) - 1, Number(day)).getTime() / 1000
 
         props.createTask({ title: task.title, description: task.description, limitDate })
 

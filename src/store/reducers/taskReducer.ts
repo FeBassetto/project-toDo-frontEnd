@@ -24,6 +24,11 @@ export default function taskReducer(state = initialState, action: any) {
                 search: action.payload.search,
                 concludedFilter: action.payload.concludedFilter
             }
+        case taskTypes.ADD_BY_ID:
+            return {
+                ...state,
+                taskById: action.payload.task
+            }
         default:
             return state
     }
