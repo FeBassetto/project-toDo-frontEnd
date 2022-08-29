@@ -30,10 +30,13 @@ export const taskActions = {
         }
     }),
 
-    editTask: (id: String) => ({
+    editTask: ({ id, concluded, title, description }: any) => ({
         type: taskTypes.EDIT_TASK,
         payload: {
-            id
+            id,
+            concluded,
+            title,
+            description
         }
     }),
 

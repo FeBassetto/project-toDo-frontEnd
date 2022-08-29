@@ -13,7 +13,7 @@ const StyledTask = styled.div`
     border-color: ${({ theme }: IStyledTheme) => theme.primaryColor};
 `
 
-const Task = ({ concluded, description, id, limitDate, title, deleteTask }: any) => {
+const Task = ({ concluded, description, id, limitDate, title, deleteTask, editTask }: any) => {
 
     const limitDateNumber: any = limitDate * 1000
 
@@ -39,7 +39,8 @@ const Task = ({ concluded, description, id, limitDate, title, deleteTask }: any)
                 </button>
                 <input
                     type="checkbox"
-                    value={concluded}
+                    checked={concluded}
+                    onChange={() => editTask({ id, concluded: !concluded })}
                 />
             </div>
         </StyledTask>
