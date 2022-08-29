@@ -92,7 +92,7 @@ const RegisterForm = (props: any) => {
 
         return props.registerUser({
             name: user.name.value,
-            image: user.image.value,
+            image: user.image.value.name.length > 0 ? user.image.value : null,
             phone: user.phone.value,
             email: user.email.value,
             password: user.password.value,

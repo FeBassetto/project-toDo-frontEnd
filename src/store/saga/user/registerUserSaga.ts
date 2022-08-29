@@ -18,6 +18,8 @@ function* registerUser({ payload }: any) {
         confirmpassword
     } = payload.userInfo
 
+    
+
     let request: Object = {
         name,
         phone,
@@ -26,7 +28,7 @@ function* registerUser({ payload }: any) {
         confirmpassword
     }
 
-    if(!(image.name.length < 1)){
+    if(image !== null){
         request = {...request, image}
     }
 
