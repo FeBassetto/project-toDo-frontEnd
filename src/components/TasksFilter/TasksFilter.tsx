@@ -20,7 +20,7 @@ const TaskFilter = (props: any) => {
                 props.addFilters({ search, concludedFilter: concluded ? true : false })
                 props.getAllTasks()
             }
-        }, 2000))
+        }, 500))
     }, [search])
 
     useEffect(() => {

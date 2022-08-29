@@ -1,8 +1,14 @@
 .tasks{
     width: 100%;
+    max-width: 1150px;
+
     min-height: 50vh;
 
     border-radius: 10px;
+
+    padding-bottom: 50px;
+
+    margin: auto;
 }
 
 .tasks__empty{

@@ -42,6 +42,10 @@ const NewTaskForm = (props: any) => {
             return setWarningMessage('error', 'Digite um titulo para a Task!')
         }
 
+        if (task.title.length > 7) {
+            return setWarningMessage('error', 'Digite um titulo de no máximo 7 letras!')
+        }
+
         if (!task.description) {
             return setWarningMessage('error', 'Digite uma descrição para a Task!')
         }
@@ -74,7 +78,7 @@ const NewTaskForm = (props: any) => {
 
         const limitDate = new Date(Number(year), Number(month), Number(day)).getTime() / 1000
 
-        props.createTask({title: task.title, description: task.description, limitDate})
+        props.createTask({ title: task.title, description: task.description, limitDate })
 
         navigate('/tasks')
     }

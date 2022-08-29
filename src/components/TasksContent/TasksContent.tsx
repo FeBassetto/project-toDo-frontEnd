@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import styled from "styled-components";
 import IStyledTheme from "../../models/IStyledTheme";
-import { ItaskInfos } from "../../models/states/IStateTask";
 import { taskActions } from "../../store/actions/taskActions";
+import Task from "../Task/Task";
 import styles from './TasksContent.module.css';
 
 const StyledContent = styled.div`
@@ -28,6 +28,8 @@ const TasksContent = (props: any) => {
 
     }, [tasks, search, concludedFilter, getAllTasks])
 
+    const orderTasks = tasks ? tasks.reverse() : null
+
     return (
         <StyledContent className={styles.tasks}>
             {(tasks?.length < 1 || tasks === null) && (
@@ -37,8 +39,14 @@ const TasksContent = (props: any) => {
             )}
             {(tasks?.length > 0 || tasks !== null) && (
                 <>
-                    {tasks.map((task: ItaskInfos) => (
-                        <h1>{task.title}</h1>
+                    {orderTasks.map((task: any) => (
+                        <Task
+                            title={task.title}
+                            id={task.id}
+                            limitDate={task.limitDate.seconds}
+                            concluded={task.concluded}
+                            key={task.id}
+                        />
                     ))}
                 </>
             )}
