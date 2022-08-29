@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { bindActionCreators, Dispatch } from "redux";
-import EditTaskForm from "../components/Forms/EditTaskForm";
 import Loader from "../components/Loader/Loader";
 import NoLogin from "../components/NoLogin/NoLogin";
 import NotFoundContent from "../components/NotFoundContent/NotFoundContent";
+import TaskInfo from "../components/TaskInfo/TaskInfo";
 import { taskActions } from "../store/actions/taskActions";
 
 
-const EditTask = (props: any) => {
+const TaskById = (props: any) => {
 
     const { id } = useParams()
+
+    console.log(props)
 
     // eslint-disable-next-line array-callback-return
     const tasksById = props.tasks !== null ? props.tasks.filter((task: any) => {
@@ -52,9 +54,8 @@ const EditTask = (props: any) => {
                 <Loader />
             )}
             {!props.loading && props.token && !error && (tasksById.length === 1 || props.taskById !== null) && (
-                <EditTaskForm
+                <TaskInfo
                     task={tasksById.length === 1 ? tasksById[0] : props.taskById}
-                    editTask={props.editTask}
                 />
             )}
             {error && !props.loading && (
@@ -73,4 +74,4 @@ const mapStateToProps = (state: any) => ({
     taskById: state.taskReducer.taskById
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditTask)
+export default connect(mapStateToProps, mapDispatchToProps)(TaskById)

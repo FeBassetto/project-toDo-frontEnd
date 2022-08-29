@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import DeleteUser from "./pages/DeleteUser";
 import Tasks from "./pages/Tasks";
 import NewTask from "./pages/NewTask";
+import TaskById from "./pages/TaskById";
 import EditTask from "./pages/EditTask";
 
 //Layouts
@@ -32,6 +33,7 @@ const Routing = () => {
                     <Route path="/profile/delete" element={<DeleteUser />} />
                     <Route path="/tasks" element={<Tasks />} />
                     <Route path="/tasks/create" element={<NewTask />} />
+                    <Route path="/tasks/:id" element={<TaskById />} />
                     <Route path="/tasks/edit/:id" element={<EditTask />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
