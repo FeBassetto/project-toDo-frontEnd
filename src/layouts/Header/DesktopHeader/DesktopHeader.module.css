@@ -25,6 +25,10 @@
     padding: .75rem 2rem;
 }
 
+#desktopHeader__image{
+    width: 110px;
+}
+
 .desktopHeader ul li:hover{
     opacity: .6;
     cursor: pointer;

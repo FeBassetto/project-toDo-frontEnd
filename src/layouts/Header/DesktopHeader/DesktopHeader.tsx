@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './DesktopHeader.module.css'
 
 import { FaUser } from 'react-icons/fa'
@@ -7,8 +7,17 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import { themeActions } from "../../../store/actions/themeActions";
+import ProfileImage from "../../../components/ProfileImage/ProfileImage";
 
 const DesktopHeader = (props: any) => {
+
+    const [preview, setPreview] = useState(props.image)
+
+    useEffect(() => {
+
+        setPreview(props.image)
+
+    }, [props.image])
 
     const setTheme = () => {
         props.changeTheme(!props.lightMode)
@@ -39,9 +48,12 @@ const DesktopHeader = (props: any) => {
                     )}
                     {props.token ?
                         <>
-                            <li>
+                            <li id={styles.desktopHeader__image}>
                                 <Link to='/profile'>
-                                    <FaUser />
+                                    <ProfileImage
+                                        src={preview}
+                                        alt={preview}
+                                    />
                                 </Link>
                             </li>
                             <li id={styles.exitButton} onClick={() => props.logOut()}>
@@ -83,7 +95,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(themeActio
 
 const mapStateToProps = (state: any) => ({
     lightMode: state.themeReducer.lightMode,
-    token: state.userReducer.token
+    token: state.userReducer.token,
+    image: state.userReducer.image
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesktopHeader)
