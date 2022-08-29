@@ -5,7 +5,8 @@ import { taskTypes } from "../actions/taskActions";
 const initialState: IStateTask = {
     tasks: null,
     concludedFilter: false,
-    search: ''
+    search: '',
+    taskById: null
 }
 
 export default function taskReducer(state = initialState, action: any) {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './DesktopHeader.module.css'
 
-import { FaUser } from 'react-icons/fa'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";

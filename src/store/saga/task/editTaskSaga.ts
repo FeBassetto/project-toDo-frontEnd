@@ -18,7 +18,8 @@ function* editTask({ payload }: any) {
         id,
         title,
         description,
-        concluded
+        concluded,
+        limitDate
     } = payload
 
     const token: string = yield select(state => state.userReducer.token)
@@ -33,10 +34,16 @@ function* editTask({ payload }: any) {
         requestBody = { ...requestBody, description }
     }
 
-    if (concluded === true || concluded === false) {
-        requestBody = { ...requestBody, concluded}
+    if (limitDate) {
+        requestBody = {
+            ...requestBody, limitDate
+        }
     }
-    
+
+    if (concluded === true || concluded === false) {
+        requestBody = { ...requestBody, concluded }
+    }
+
     try {
 
         yield call(

@@ -1,4 +1,4 @@
-export interface ItaskInfos{
+export interface ItaskInfos {
     title: String | null,
     description: String | null,
     concluded: Boolean
@@ -7,5 +7,6 @@ export interface ItaskInfos{
 export default interface IStateTask {
     tasks: Array<ItaskInfos> | null,
     concludedFilter: Boolean,
-    search: String | null
+    search: String | null,
+    taskById: null
 }

@@ -30,13 +30,14 @@ export const taskActions = {
         }
     }),
 
-    editTask: ({ id, concluded, title, description }: any) => ({
+    editTask: ({ id, concluded, title, description, limitDate }: any) => ({
         type: taskTypes.EDIT_TASK,
         payload: {
             id,
             concluded,
             title,
-            description
+            description,
+            limitDate
         }
     }),
 
