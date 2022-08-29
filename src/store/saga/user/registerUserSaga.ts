@@ -18,17 +18,24 @@ function* registerUser({ payload }: any) {
         confirmpassword
     } = payload.userInfo
 
+    let request: Object = {
+        name,
+        phone,
+        email,
+        password,
+        confirmpassword
+    }
+
+    if(!(image.name.length < 1)){
+        request = {...request, image}
+    }
+
     try {
         const registerUser: AxiosResponse = yield call(
             api.post,
             'user/register',
             {
-                name,
-                image,
-                phone,
-                email,
-                password,
-                confirmpassword
+                ...request
             },
             {
                 headers: {
